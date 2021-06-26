@@ -2,5 +2,5 @@ import { config } from 'dotenv'
 config()
 
 module.exports = {
-    MONGODB_URI: (process.env.MONGODB_URI || 27017)
+    MONGODB_URI: (process.env.MONGODB_URI || "mongodb://localhost:27017/DMDB")
 }

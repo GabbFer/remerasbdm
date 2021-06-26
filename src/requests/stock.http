@@ -1,0 +1,24 @@
+### CREAR UNO
+POST http://localhost:8080/api/stock
+Content-Type: application/json
+
+{
+    "modelo": "60c2969cfe6b9d3c4c525319",
+    "cantidad_disponible":0,
+    "precio_unitario":0,
+    "descuento_unitario":0 
+}
+### OBTENER TODOS
+GET http://localhost:8080/api/stock
+### OBTENER ESPECÍFICAMENTE A UNO
+GET http://localhost:8080/api/stock/____________
+###
+DELETE http://localhost:8080/api/stock/____________
+###
+PUT http://localhost:8080/api/stock/____________
+Content-Type: application/json
+
+{
+    
+}
+###

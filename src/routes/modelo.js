@@ -4,6 +4,7 @@ import ModeloController from '../controllers/modelo'
 const router = Router()
 
 router.get('/helper/cmbmodelos', ModeloController.CmbModelos)
+router.get('/helper/dashboard', ModeloController.Dashboard)
 
 router.delete('/:id', ModeloController.Delete)
 

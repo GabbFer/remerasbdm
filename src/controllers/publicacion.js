@@ -85,7 +85,7 @@ async function Delete(req = request, res = response){
 
         console.log('PUBLICACIÓN DELETE')
         let publicacion_eliminado = await Publicacion.deleteOne({_id:req.params.id})
-        res.send(publicacion_eliminado)
+        res.send({msg:"Stock delete finalizado",publicacion_eliminado})
 
     } catch (err) {
         

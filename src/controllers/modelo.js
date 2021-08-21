@@ -81,7 +81,7 @@ async function Delete(req = request, res = response) {
         if (modelo_eliminado == null) {
             res.status(400).send("El _Id del modelo especificado no se ha encontrado")
         }
-        res.json(modelo_eliminado)
+        res.json({msg: "Modelo delete finalizado", modelo_eliminado})
 
     } catch (error) {
 
@@ -139,11 +139,34 @@ async function CmbModelos(req = request, res = response) {
 
 }
 
+async function Dashboard(req = request, res = response) {
+
+    try {
+
+        console.log('MODELO GET')
+        let modelos = await Modelo.find()
+        let selectModelos = modelos.map((modelo)=>{
+            return { _id: modelo._id,name:modelo.name,tags:modelo.tags}
+        })
+        res.json( selectModelos )
+
+    } catch (error) {
+
+        res.status(500).json({
+            err,
+            msg: "Server dice: Error al obtener los modelos"
+        })
+
+    }
+
+}
+
 export default {
     GetAll,
     GetById,
     Post,
     Delete,
     Put,
-    CmbModelos
+    CmbModelos,
+    Dashboard
 }

@@ -85,7 +85,7 @@ async function Delete(req = request, res = response) {
 
         console.log('STOCK GET: ' + req.params.id)
         let stock_eliminado = await Stock.deleteOne({ _id: req.params.id })
-        res.send(stock_eliminado)
+        res.send({msg:"Stock delete finalizado",stock_eliminado})
 
     } catch (err) {
 
@@ -118,11 +118,32 @@ async function Put(req = request, res = response) {
 
 }
 
+async function Dashboard(req = request, res = response) {
+
+    try {
+
+        console.log('STOCK GET')
+        let stocks = await Stock.find().populate('modelo','_id name tags')
+        res.send(stocks)
+
+    } catch (err) {
+
+        res.status(500).json({
+            err,
+            msg: "Server dice: Error al obtener los stocks"
+        })
+
+    }
+
+
+}
+
 
 export default {
     GetAll,
     GetById,
     Post,
     Delete,
-    Put
+    Put,
+    Dashboard
 }

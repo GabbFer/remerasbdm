@@ -3,6 +3,8 @@ import StockController from '../controllers/stock'
 
 const router = Router()
 
+router.get('/helper/dashboard', StockController.Dashboard)
+
 router.delete('/:id', StockController.Delete )
 
 router.get('/', StockController.GetAll )
